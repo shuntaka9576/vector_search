@@ -17,7 +17,6 @@ DEFAULT_ARGS = {"show_progress_bar": True}
 
 # 与えられたモデルと引数で、「別に与えられたテキストのリストをベクトル化する関数」を返す関数
 def vectorize_with(model, args=DEFAULT_ARGS):
-
     # 与えられたテキストのリストをベクトル化する関数
     def vectorize(texts):
         # 高速化のため、対象のテキストを重複排除する

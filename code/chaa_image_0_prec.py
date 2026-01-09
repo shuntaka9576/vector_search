@@ -56,7 +56,6 @@ def get_text_or_image_vectorization_model():
 
 # 与えられたモデルと引数で、「別に与えられたリストの要素をベクトル化する関数」を返す関数
 def vectorize_texts_or_images_with(model, args=DEFAULT_ARGS):
-
     # 与えられたリストの要素をベクトル化する関数
     def vectorize(texts_or_images):
         return list(model.encode(texts_or_images, **args))

@@ -20,9 +20,7 @@ argument_parser = ArgumentParser()
 # ドキュメントを分別するセントロイド数（クラスタ数でもある）
 argument_parser.add_argument("--number-of-centroids", default=40, type=int)
 # ドキュメントあたりOpenSearchに紐づけさせるセントロイド数
-argument_parser.add_argument(
-    "--number-of-centroids-per-document", default=2, type=int
-)
+argument_parser.add_argument("--number-of-centroids-per-document", default=2, type=int)
 # クエリあたりOpenSearchに引き当てさせるセントロイド数
 argument_parser.add_argument("--number-of-centroids-per-query", default=2, type=int)
 args = argument_parser.parse_args()

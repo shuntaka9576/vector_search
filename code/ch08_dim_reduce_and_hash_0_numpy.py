@@ -37,9 +37,7 @@ if __name__ == "__main__":
 
     # ランダム回転する。クエリとドキュメント（ここでは製品タイトル）の両ベクトル列それぞれ行う
     for vector_column in ["query_vector", "title_vector"]:
-        jp_data[vector_column] = randomly_rotate(
-            jp_data[vector_column], dimensions, 64
-        )
+        jp_data[vector_column] = randomly_rotate(jp_data[vector_column], dimensions, 64)
 
     # スコア（ここではコサイン類似度）を計算する
     jp_data["score"] = jp_data[["query_vector", "title_vector"]].apply(cos, axis=1)

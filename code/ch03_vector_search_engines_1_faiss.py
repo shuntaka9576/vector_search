@@ -11,9 +11,7 @@ import numpy as np
 
 
 # ベクトル化したデータセットをメモリに読み込み、クエリとドキュメントに分割する
-query_data, document_data = split_into_query_and_document(
-    read_basic_vectorized_data()
-)
+query_data, document_data = split_into_query_and_document(read_basic_vectorized_data())
 
 # データからベクトルの次元数を取得し、Faissインデックスを作成する
 faiss_index = faiss.IndexFlatIP(get_dimension_number_of(query_data))
@@ -26,9 +24,7 @@ query_data = query_data[query_data.query_id == 119300]
 print(query_data.to_string(columns=["query_id", "query"], index=False))
 
 # クエリベクトルを整形し入力（つまり検索）する
-ip_matrix, index_matrix = faiss_index.search(
-    np.vstack(query_data["query_vector"]), 10
-)
+ip_matrix, index_matrix = faiss_index.search(np.vstack(query_data["query_vector"]), 10)
 
 # Faissの検索の返り値を、そのまま表示する
 print(ip_matrix)

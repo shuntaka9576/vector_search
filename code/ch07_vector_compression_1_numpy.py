@@ -39,9 +39,7 @@ if __name__ == "__main__":
             quantize(jp_data)
 
         # スコア（ここではコサイン類似度）を計算する
-        jp_data["score"] = jp_data[["query_vector", "title_vector"]].apply(
-            cos, axis=1
-        )
+        jp_data["score"] = jp_data[["query_vector", "title_vector"]].apply(cos, axis=1)
 
         # テストデータ上の平均nDCGを計算し表示する
         print_ndcg(jp_data[jp_data.split == "test"])

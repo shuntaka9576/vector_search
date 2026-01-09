@@ -6,7 +6,6 @@ import pandas as pd
 
 # 題材のデータセットをメモリに読み込む関数。クエリ単位でサンプリングする機能もある
 def read_jp_data(sample_rate=1.0, split=None, read_product_detail=False):
-
     # 製品（products）とその他の情報（examples）の各ファイルのパスを組み立てる
     examples_path, products_path = (
         os.path.join(
@@ -71,7 +70,6 @@ def read_jp_data(sample_rate=1.0, split=None, read_product_detail=False):
 # このコードを直に実行した場合のみ、以下のコードを実行する
 # つまり、このコードをほかのコードにimportした場合は、以下のコードを実行しない
 if __name__ == "__main__":
-
     # クエリ数とデータの行数が正しいか確認する関数
     def assert_counts(sample_rate, split, query_count, row_count):
         if sample_rate == 1.0:

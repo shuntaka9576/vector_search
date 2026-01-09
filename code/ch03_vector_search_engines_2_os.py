@@ -61,7 +61,6 @@ def format_query(row):
 
 # 本書のサンプルコードでOpenSearchを扱うためのクラス
 class OpenSearchTester:
-
     # インスタンスを作成する特殊メソッド
     def __init__(self, index_name, concurrency=multiprocessing.cpu_count()):
         # すべてのメソッドで共通のインデックスを扱うので、その名前を保存しておく
@@ -207,9 +206,7 @@ if __name__ == "__main__":
     tester = OpenSearchTester("ch03")
 
     # データからベクトルの次元数を取得し、OpenSearchインデックスを作成する
-    tester.create_index(
-        get_default_index_options(get_dimension_number_of(query_data))
-    )
+    tester.create_index(get_default_index_options(get_dimension_number_of(query_data)))
 
     # ドキュメントを整形し入力する
     tester.input_documents(document_data)
