@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# uv / venv
+.venv/
+
+# Ruff
+.ruff_cache/
+
+code/code.egg-info/

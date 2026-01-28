@@ -36,31 +36,33 @@ docker compose up -d
 ### ローカル実行（uv使用）
 
 ```bash
-cd code
-uv sync                    # 依存関係インストール
-uv run python ch01_data_preparation.py
+uv sync                    # 依存関係インストール（ルートに.venvが作成される）
+uv run python code/ch01_data_preparation.py
 ```
 
 ### フォーマット
 
 ```bash
-cd code
-uv run ruff format .
+uv run ruff format code/
 ```
 
 ## アーキテクチャ
 
 ```
-code/
-├── ch*.py              # 章別サンプルコード（メイン実装）
-├── script/ch*/         # 章別シェルスクリプト（docker_exec_*.sh）
-├── output/ch*/         # 章別出力例
-├── esci-data/          # ESCIデータセット（Gitサブモジュール）
-├── tmp/                # 一時ファイル（モデル、キャッシュ）
-├── pyproject.toml      # プロジェクト設定
-├── uv.lock             # 依存関係ロックファイル
-├── requirements.txt    # 章別依存関係一覧
-└── docker-compose.yaml # workspace + OpenSearch環境
+./
+├── pyproject.toml          # workspace root設定
+├── uv.lock                 # 依存関係ロックファイル
+├── .venv/                  # 仮想環境（ルートに配置、IDE補完用）
+├── .python-version         # Pythonバージョン指定
+└── code/
+    ├── ch*.py              # 章別サンプルコード（メイン実装）
+    ├── script/ch*/         # 章別シェルスクリプト（docker_exec_*.sh）
+    ├── output/ch*/         # 章別出力例
+    ├── esci-data/          # ESCIデータセット（Gitサブモジュール）
+    ├── tmp/                # 一時ファイル（モデル、キャッシュ）
+    ├── pyproject.toml      # パッケージ依存関係設定（workspace member）
+    ├── requirements.txt    # 章別依存関係一覧
+    └── docker-compose.yaml # workspace + OpenSearch環境
 ```
 
 ## Docker Compose サービス

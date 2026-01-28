@@ -1,0 +1,13 @@
+[project]
+name = "vector-search"
+version = "0.1.0"
+description = "「ベクトル検索実践入門」サンプルコードリポジトリ"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = ["code"]
+
+[tool.uv.sources]
+code = { workspace = true }
+
+[tool.uv.workspace]
+members = ["code"]
