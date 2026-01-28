@@ -6,7 +6,8 @@
 query_vectorとtitle_vectorが入っていることを確認
 
 ```
-D SELECT * FROM read_parquet('./tmp/basic-vectorized.parquet') LIMIT 5;
+duckdb ./code/tmp/basic-vectorized.parquet
+SELECT * FROM read_parquet('./code/tmp/basic-vectorized.parquet') LIMIT 5;
 ┌──────────────────────┬──────────┬────────────┬────────────┬─────────┬──────────────────────┬──────────────────────┬──────────────────────────────────────────────────────────────────────────────────┐
 │        query         │ query_id │ product_id │ esci_label │  split  │    product_title     │     query_vector     │                                   title_vector                                   │
 │       varchar        │  int64   │  varchar   │  varchar   │ varchar │       varchar        │       float[]        │                                     float[]                                      │
